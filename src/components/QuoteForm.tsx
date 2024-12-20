@@ -2,6 +2,8 @@ import StepTwoForm from "./forms/StepTwoForm";
 import { FormStepper } from "./forms/FormStepper";
 import StepOneForm from "./forms/StepOneForm";
 import StepThreeForm from "./forms/StepThreeForm";
+import { items } from "../constants/itemsData";
+import { FormikValues } from "formik";
 
 type Props = {
   step: number;
@@ -10,10 +12,12 @@ type Props = {
 
 const QuoteForm = ({ setStep, step }: Props) => {
   const initialValues = {
-    items: [],
+    items: [...items],
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (values: FormikValues) => {
+    console.log(values);
+  };
 
   return (
     <div className="border justify-between rounded-md items-center p-5 px-10">

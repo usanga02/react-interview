@@ -33,8 +33,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label className="text-[#00113D] text-sm font-[600]">{label}</label>
         )}
-        <Field
-          as="select"
+        <select
           className="border px-2 py-1.5 rounded-md w-full min-w-44 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 "
           ref={ref}
           {...props}
@@ -44,7 +43,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
               {typeof option == "string" ? option : option.name}
             </option>
           ))}
-        </Field>
+        </select>
       </div>
     );
   }

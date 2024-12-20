@@ -16,7 +16,7 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
   ) as React.ReactElement<FormikStepProps>[];
 
   const currentStep = stepsArray[step];
-  const noOfSteps = stepsArray.length;
+  const noOfSteps = stepsArray.length - 1;
   function isLastStep() {
     return step === stepsArray.length - 1;
   }
@@ -24,7 +24,6 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
   return (
     <Formik
       {...props}
-      validationSchema={currentStep.props.validationSchema}
       onSubmit={async (values, helpers) => {
         if (isLastStep()) {
           await props.onSubmit(values, helpers);
