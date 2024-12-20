@@ -11,7 +11,7 @@ const FileUpload = (props: Props) => {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files);
-      setFiles(filesArray);
+      setFiles((prev) => [...prev, ...filesArray]);
     }
   };
 

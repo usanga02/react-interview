@@ -49,7 +49,7 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
               Save as draft
             </Button>
             <Button
-              onClick={() => step < noOfSteps && setStep(step++)}
+              onClick={() => step < noOfSteps && setStep(++step)}
               disabled={isSubmitting}
               className="px-5 border border-transparent"
               type={step < noOfSteps ? "button" : "submit"}

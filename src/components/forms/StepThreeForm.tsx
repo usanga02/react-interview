@@ -6,7 +6,7 @@ type Props = {};
 
 const StepThreeForm = (props: Props) => {
   return (
-    <div>
+    <div className="space-y-5">
       <QuoteInfo />
       <ItemsTable />
       <ItemComp />

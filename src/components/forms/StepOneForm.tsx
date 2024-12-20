@@ -1,9 +1,8 @@
-import { FieldArray, FormikValues, useFormikContext } from "formik";
+import { FieldArray, useFormikContext } from "formik";
 import deleteIcon from "../../assets/icons/bin.svg";
 import Input from "../ui/Input";
 import PageHeader from "../ui/PageHeader";
 import Select from "../ui/Select";
-import * as yup from "yup";
 import { ChangeEvent } from "react";
 
 type Props = {};
@@ -52,20 +51,6 @@ const StepOneForm = (props: Props) => {
     },
   ];
 
-  // const initialValues = {
-  //   items: [],
-  // };
-
-  // const validationSchema = yup.object({
-  //   items: yup.array().of(
-  //     yup.object({
-  //       selectedItem: yup.string().required("Required"),
-  //       description: yup.string().required("Required"),
-  //       price: yup.number().required("Required").positive("Must be positive"),
-  //     })
-  //   ),
-  // });
-
   const { values, setFieldValue } = useFormikContext();
 
   const handleItemChange = (
@@ -73,8 +58,6 @@ const StepOneForm = (props: Props) => {
     index: number
   ) => {
     const selectedValue = JSON.parse(e.target.value);
-    console.log(selectedValue.name);
-    // console.log(values.items[index]);
 
     setFieldValue(`items.${index}.name`, selectedValue.name);
     if (selectedValue) {
@@ -188,11 +171,7 @@ const StepOneForm = (props: Props) => {
                       </td>
                       <td className="pl-3">
                         <div className="flex min-w-32 justify-between">
-                          <Input
-                            type="text"
-                            readOnly
-                            name={`items.${index}.amount`}
-                          />
+                          <Input type="text" name={`items.${index}.amount`} />
                           <img
                             className="cursor-pointer"
                             onClick={() => remove(index)}

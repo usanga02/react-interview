@@ -1,10 +1,7 @@
-import Button from "./ui/Button";
 import StepTwoForm from "./forms/StepTwoForm";
 import { FormStepper } from "./forms/FormStepper";
-import { FormikValues } from "formik";
 import StepOneForm from "./forms/StepOneForm";
 import StepThreeForm from "./forms/StepThreeForm";
-import StepFourForm from "./forms/StepFourForm";
 
 type Props = {
   step: number;
@@ -29,7 +26,6 @@ const QuoteForm = ({ setStep, step }: Props) => {
         <StepOneForm />
         <StepTwoForm />
         <StepThreeForm />
-        <StepFourForm />
       </FormStepper>
     </div>
   );
