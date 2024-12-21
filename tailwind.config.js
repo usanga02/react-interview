@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        satoshi: ["Satoshi"],
+      },
       colors: {
         sidebar: {
           "": "#F7F9FC",

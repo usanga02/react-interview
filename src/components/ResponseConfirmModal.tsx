@@ -7,7 +7,7 @@ const ResponseConfirmModal = () => {
   return (
     <>
       <Modal
-        className="w-[620px] px-8 py-8"
+        className="w-[580px] px-8 py-8"
         isOpen={modal === "confirmResponse"}
         handleClose={handleCloseModal}
       >

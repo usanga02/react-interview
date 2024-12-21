@@ -10,7 +10,7 @@ const Notify = () => {
         <div
           className={`bg-white text-brand-dark flex border ${
             message ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-          } transition-transform duration-1000 ease-in-out items-center justify-between overflow-hidden md:justify-start gap-8 fixed top-20 right-3 md:right-10 z-100 rounded-md w-96`}
+          } transition-transform duration-1000 ease-in-out items-center justify-between overflow-hidden md:justify-start gap-8 fixed top-20 right-5 z-100 rounded-md w-96`}
         >
           <div className="flex w-full relative">
             <div

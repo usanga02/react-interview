@@ -8,7 +8,7 @@ function Layout() {
       <Sidebar />
       <main className="ml-72 w-full">
         <Navbar />
-        <div className="px-6 pt-20 text-brand-gray py-8">
+        <div className="px-6 pt-20 text-brand-gray font-satoshi py-8">
           <Outlet />
         </div>
       </main>
