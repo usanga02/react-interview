@@ -3,9 +3,7 @@ import Input from "../ui/Input";
 import PageHeader from "../ui/PageHeader";
 import Select from "../ui/Select";
 
-type Props = {};
-
-const StepTwoForm = (props: Props) => {
+const StepTwoForm = () => {
   return (
     <>
       <PageHeader

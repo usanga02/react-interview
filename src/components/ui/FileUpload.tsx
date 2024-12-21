@@ -2,9 +2,8 @@ import { ChangeEvent, useRef, useState } from "react";
 import upload from "../../assets/icons/upload.svg";
 import Button from "./Button";
 import Input from "./Input";
-type Props = {};
 
-const FileUpload = (props: Props) => {
+const FileUpload = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [files, setFiles] = useState<File[]>([]);
 

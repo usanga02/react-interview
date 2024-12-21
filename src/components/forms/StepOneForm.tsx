@@ -7,9 +7,7 @@ import { ChangeEvent, useCallback } from "react";
 import { formatMoney } from "../../helpers/format";
 import { quote } from "../../constants/itemsData";
 
-type Props = {};
-
-const StepOneForm = (props: Props) => {
+const StepOneForm = () => {
   const {
     values,
     setFieldValue,
@@ -43,7 +41,6 @@ const StepOneForm = (props: Props) => {
   ) => {
     const value = e.target.value;
     const selectedValue = quote.items.find((item) => item.name == value)!;
-    console.log(selectedValue);
 
     setFieldValue(`items.${index}.name`, selectedValue.name);
     if (selectedValue) {
@@ -120,7 +117,7 @@ const StepOneForm = (props: Props) => {
         {({ push, remove }) => (
           <div className="space-y-2 py-8 border-b">
             <h5
-              onClick={() => push(items[0])}
+              onClick={() => push(quote.items[0])}
               className="font-bold cursor-pointer w-fit rounded-sm border px-3 pb-1 text-brand-dark"
             >
               Add Items

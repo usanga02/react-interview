@@ -1,4 +1,3 @@
-import avatar from "../assets/images/avatar.svg";
 
 type Props = {
   items: {

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import arrowDown from "../assets/icons/arrow-down.svg";
 import signDoc from "../assets/icons/sign-doc.svg";
-type Props = {};
 
-const ItemComp = (props: Props) => {
+const ItemComp = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="border flex justify-between rounded-md items-center p-4 px-5">

@@ -3,12 +3,9 @@ import ItemComp from "../ItemComp";
 import ItemsTable from "../ItemsTable";
 import QuoteInfo from "../QuoteInfo";
 
-type Props = {};
-
-const StepThreeForm = (props: Props) => {
+const StepThreeForm = () => {
   const {
-    values,
-    setFieldValue,
+    values
   }: FormikContextType<{
     rfgNo: string;
     title: string;

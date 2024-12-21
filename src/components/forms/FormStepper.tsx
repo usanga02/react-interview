@@ -23,7 +23,7 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
 
   return (
     <Formik {...props}>
-      {({ isSubmitting }) => (
+      {({ validateForm }) => (
         <Form>
           {currentStep}
 
@@ -43,9 +43,11 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
               Save as draft
             </Button>
             <Button
-              onClick={() =>
+              onClick={() => {
+                validateForm();
+              
                 step < noOfSteps ? setStep(step + 1) : setButtonType("submit")
-              }
+              }}
               className="px-5 border border-transparent"
               type={buttonType}
             >

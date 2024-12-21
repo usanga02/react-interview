@@ -3,7 +3,7 @@ import { FormStepper } from "./forms/FormStepper";
 import StepOneForm from "./forms/StepOneForm";
 import StepThreeForm from "./forms/StepThreeForm";
 import { quote } from "../constants/itemsData";
-import { FormikHelpers, FormikValues } from "formik";
+import { FormikValues } from "formik";
 import { useAppContext } from "../context/AppContext";
 import * as yup from "yup";
 
@@ -22,7 +22,7 @@ const QuoteForm = ({ setStep, step }: Props) => {
     items: [...quote.items],
   };
 
-  const handleSubmit = (values: FormikValues, helpers: FormikHelpers<{}>) => {
+  const handleSubmit = (values: FormikValues) => {
     // helpers.validateForm(values)
     console.log(values);
     setModal("confirmResponse");

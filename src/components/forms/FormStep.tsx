@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import Step from "../ui/Step";
 
 type Props = {

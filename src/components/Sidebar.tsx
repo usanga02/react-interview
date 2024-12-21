@@ -12,7 +12,7 @@ import support from "../assets/icons/support.svg";
 import settings from "../assets/icons/settings.svg";
 import avatar from "../assets/images/avatar.svg";
 import signOut from "../assets/icons/sign-out.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Sidebar = () => {
   const navigationLinks = [
