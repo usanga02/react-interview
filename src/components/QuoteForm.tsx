@@ -4,6 +4,7 @@ import StepOneForm from "./forms/StepOneForm";
 import StepThreeForm from "./forms/StepThreeForm";
 import { items } from "../constants/itemsData";
 import { FormikValues } from "formik";
+import { useAppContext } from "../context/AppContext";
 
 type Props = {
   step: number;
@@ -11,12 +12,14 @@ type Props = {
 };
 
 const QuoteForm = ({ setStep, step }: Props) => {
+  const { setModal } = useAppContext();
   const initialValues = {
     items: [...items],
   };
 
   const handleSubmit = (values: FormikValues) => {
     console.log(values);
+    setModal("confirmResponse");
   };
 
   return (

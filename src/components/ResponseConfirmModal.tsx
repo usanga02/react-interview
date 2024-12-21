@@ -3,11 +3,11 @@ import Button from "./ui/Button";
 import Modal from "./ui/Modal";
 
 const ResponseConfirmModal = () => {
-  const { handleCloseModal, modal } = useAppContext();
+  const { handleCloseModal, modal, setModal } = useAppContext();
   return (
     <>
       <Modal
-        className="w-[584px] py-8"
+        className="w-[620px] px-8 py-8"
         isOpen={modal === "confirmResponse"}
         handleClose={handleCloseModal}
       >
@@ -20,8 +20,12 @@ const ResponseConfirmModal = () => {
           </p>
 
           <div className="flex justify-end mt-5 gap-3">
-            <Button variant="outline">Cancel</Button>
-            <Button className="px-5">Continue</Button>
+            <Button onClick={handleCloseModal} variant="outline">
+              Cancel
+            </Button>
+            <Button onClick={() => setModal("spinner")} className="px-5">
+              Continue
+            </Button>
           </div>
         </div>
       </Modal>

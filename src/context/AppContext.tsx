@@ -5,7 +5,13 @@ export type AppContextType = {
     variant: "error" | "success";
     message: string;
   } | null;
-
+  setMessage: React.Dispatch<
+    React.SetStateAction<{
+      variant: "error" | "success";
+      message: string;
+    } | null>
+  >;
+  setModal: React.Dispatch<React.SetStateAction<string>>;
   modal: string;
   handleCloseModal: () => void;
 };
@@ -24,15 +30,16 @@ const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (message != null) {
-      const messageTimer = setTimeout(() => setMessage(null), 4000);
-      return clearTimeout(messageTimer);
+      setTimeout(() => setMessage(null), 8000);
     }
   }, [message]);
 
   return (
     <AppContext.Provider
       value={{
+        setMessage,
         message,
+        setModal,
         modal,
         handleCloseModal,
       }}

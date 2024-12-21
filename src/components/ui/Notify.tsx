@@ -1,20 +1,36 @@
 import { useAppContext } from "../../context/AppContext";
+import close from "../../assets/icons/Close.svg";
+import misc from "../../assets/icons/Misc.svg";
 
 const Notify = () => {
-  const { message } = useAppContext();
+  const { message, setMessage } = useAppContext();
   return (
     <>
       {message != null && (
         <div
-          className={`${
-            message.variant == "error"
-              ? `border border-red-300 bg-red-200 text-red-700`
-              : `border border-green-300 bg-green-200 text-green-700`
-          } ${
+          className={`bg-white text-brand-dark flex border ${
             message ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-          } transition-transform duration-1000 ease-in-out flex items-center justify-between md:justify-start gap-8 fixed top-4 right-5 md:right-10 z-50 px-4 py-3 rounded-md w-full md:w-fit md:max-w-[508px] `}
+          } transition-transform duration-1000 ease-in-out items-center justify-between overflow-hidden md:justify-start gap-8 fixed top-20 right-3 md:right-10 z-100 rounded-md w-96`}
         >
-          <span className={` flex items-center gap-4`}>{message.message}</span>
+          <div className="flex w-full relative">
+            <div
+              className={`${
+                message.variant == "error" ? `bg-red-400 ` : `bg-green-400`
+              } absolute w-2 left-0 h-full`}
+            />
+            <div
+              className={` flex items-center w-full font-bold text-brand-dark py-4 pl-6`}
+            >
+              <img src={misc} alt="" />
+              <span className="ml-10">{message.message}</span>
+            </div>
+          </div>
+          <div
+            onClick={() => setMessage(null)}
+            className="p-2 border border-transparent mr-3 hover:border-sidebar- rounded-md cursor-pointer"
+          >
+            <img src={close} alt="" />
+          </div>
         </div>
       )}
     </>
