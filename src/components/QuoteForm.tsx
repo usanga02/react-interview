@@ -2,7 +2,7 @@ import StepTwoForm from "./forms/StepTwoForm";
 import { FormStepper } from "./forms/FormStepper";
 import StepOneForm from "./forms/StepOneForm";
 import StepThreeForm from "./forms/StepThreeForm";
-import { items } from "../constants/itemsData";
+import { quote } from "../constants/itemsData";
 import { FormikHelpers, FormikValues } from "formik";
 import { useAppContext } from "../context/AppContext";
 import * as yup from "yup";
@@ -19,7 +19,7 @@ const QuoteForm = ({ setStep, step }: Props) => {
     title: "",
     department: "",
     deliveryDate: "",
-    items: [...items],
+    items: [...quote.items],
   };
 
   const handleSubmit = (values: FormikValues, helpers: FormikHelpers<{}>) => {
