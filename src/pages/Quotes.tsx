@@ -5,6 +5,7 @@ import QuoteInfo from "../components/QuoteInfo";
 import ItemsTable from "../components/ItemsTable";
 import { useNavigate } from "react-router-dom";
 import ItemComp from "../components/ItemComp";
+import { quote } from "../constants/itemsData";
 
 const Quotes = () => {
   const navigate = useNavigate();
@@ -25,8 +26,8 @@ const Quotes = () => {
         </div>
       </div>
 
-      <QuoteInfo />
-      <ItemsTable />
+      <QuoteInfo {...quote} />
+      <ItemsTable items={quote.items} />
       <ItemComp />
     </div>
   );

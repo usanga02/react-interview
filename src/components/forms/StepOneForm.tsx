@@ -15,6 +15,10 @@ const StepOneForm = (props: Props) => {
     setFieldValue,
     handleChange,
   }: FormikContextType<{
+    rfgNo: string;
+    title: string;
+    department: string;
+    deliveryDate: string;
     items: {
       name: string;
       id: string;
@@ -37,7 +41,9 @@ const StepOneForm = (props: Props) => {
     e: ChangeEvent<HTMLSelectElement>,
     index: number
   ) => {
-    const selectedValue = JSON.parse(e.target.value);
+    const value = e.target.value;
+    const selectedValue = items.find((item) => item.name == value)!;
+    console.log(selectedValue);
 
     setFieldValue(`items.${index}.name`, selectedValue.name);
     if (selectedValue) {
@@ -78,18 +84,24 @@ const StepOneForm = (props: Props) => {
         <Input
           label="RFG No."
           name="rfgNo"
-          type="number"
+          value={values?.rfgNo}
+          onChange={handleChange}
+          type="text"
           placeholder="RFG-10234"
         />
         <Input
           label="Title"
           name="title"
+          value={values?.title}
+          onChange={handleChange}
           type="text"
           placeholder="Request for Equipments"
         />
         <Input
           label="Department"
           name="department"
+          value={values?.department}
+          onChange={handleChange}
           type="text"
           placeholder="Maternity"
         />
@@ -97,6 +109,8 @@ const StepOneForm = (props: Props) => {
           label="Expected Delivery Date"
           onClick={(e) => e.currentTarget.showPicker()}
           name="deliveryDate"
+          value={values?.deliveryDate}
+          onChange={handleChange}
           type="date"
           placeholder="2024-12-02"
         />
@@ -131,9 +145,9 @@ const StepOneForm = (props: Props) => {
                         <Select
                           name={`items.${index}.name`}
                           // @ts-ignore
-                          defaultValue={values.items[index].name}
+                          value={values.items[index].name}
                           onChange={(e) => handleItemChange(e, index)}
-                          options={items}
+                          options={[...items.map((item) => item.name)]}
                         />
                       </td>
                       <td className="pr-3">
@@ -174,7 +188,7 @@ const StepOneForm = (props: Props) => {
                         />
                       </td>
                       <td className="pl-3">
-                        <div className="flex min-w-32 justify-between">
+                        <div className="flex min-w-32 gap-2 justify-between">
                           <Input
                             type="text"
                             name={`items.${index}.amount`}

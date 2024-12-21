@@ -1,28 +1,7 @@
-import { Field } from "formik";
 import { forwardRef } from "react";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  options:
-    | {
-        name: string;
-        id: string;
-        variant: string | null;
-        quantity: number;
-        unit: string;
-        price: number;
-        amount: number;
-        deliveryDate: string;
-      }[]
-    | {
-        name: string;
-        value: string;
-        label: string;
-        details: {
-          description: string;
-          price: number;
-        };
-      }[]
-    | string[];
+  options: string[];
   label?: string;
 }
 
@@ -39,8 +18,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           {...props}
         >
           {options.map((option, index) => (
-            <option key={index} value={JSON.stringify(option)}>
-              {typeof option == "string" ? option : option.name}
+            <option key={index} value={option}>
+              {option}
             </option>
           ))}
         </select>

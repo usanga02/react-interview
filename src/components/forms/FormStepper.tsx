@@ -21,10 +21,6 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
   const currentStep = stepsArray[step];
   const noOfSteps = stepsArray.length - 1;
 
-  const isLast = () => {
-    return step === stepsArray.length - 1;
-  };
-
   return (
     <Formik {...props}>
       {({ isSubmitting }) => (

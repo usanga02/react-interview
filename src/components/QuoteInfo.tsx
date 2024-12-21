@@ -1,13 +1,28 @@
 import building from "../assets/icons/building.svg";
 
-type Props = {};
+type Props = {
+  rfgNo: string;
+  title: string;
+  department: string;
+  deliveryDate: string;
+  items: {
+    name: string;
+    id: string;
+    variant: string;
+    quantity: number;
+    unit: string;
+    price: number;
+    amount: number;
+    deliveryDate: string;
+  }[];
+};
 
-const QuoteInfo = (props: Props) => {
+const QuoteInfo = ({ title, rfgNo, deliveryDate, department }: Props) => {
   return (
     <div className="border space-y-8 rounded-md p-5 px-7">
       <div className="flex justify-between">
         <h2 className="font-bold text-brand-dark text-xl">Quote Information</h2>
-        <p>Expected delivery date : 2024-12-02</p>
+        <p>{deliveryDate}</p>
       </div>
       <div className="flex justify-between">
         <div className="font-[500] text-brand-text/65 space-y-3">
@@ -18,8 +33,8 @@ const QuoteInfo = (props: Props) => {
           <p>Department</p>
         </div>
         <div className="text-sidebar-text font-[500] space-y-3">
-          <p>Request for Equipments</p>
-          <p>RQ #01234</p>
+          <p>{title}</p>
+          <p>{rfgNo}</p>
           <p className="space-x-2">
             <span className="text-brand-bold font-bold bg-brand-pink px-2 pt-1 pb-1.5 rounded-full w-8 h-8">
               JD
@@ -34,7 +49,7 @@ const QuoteInfo = (props: Props) => {
               Awaiting
             </span>
           </p>
-          <p>Maternity</p>
+          <p>{department}</p>
         </div>
         <div className="border space-y-4 rounded-md w-[352px] h-fit p-5">
           <div className="flex gap-2">

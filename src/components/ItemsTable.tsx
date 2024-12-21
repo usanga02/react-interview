@@ -1,52 +1,65 @@
 import avatar from "../assets/images/avatar.svg";
 
-const ItemsTable = () => {
-  const items = [
-    {
-      name: "Oxygen concentration",
-      id: "28373",
-      variant: "blue",
-      quantity: 100,
-      unit: "pieces",
-      price: 200.0,
-      amount: 2000.0,
-      deliveryDate: "2024-08-07",
-      image: avatar,
-    },
-    {
-      name: "Mechanical ventilation",
-      id: "28373",
-      variant: null,
-      quantity: 45,
-      unit: "kg",
-      price: 350.0,
-      amount: 2500.0,
-      deliveryDate: "2024-08-07",
-      image: avatar,
-    },
-    {
-      name: "Patient monitor",
-      id: "28373",
-      variant: "blue",
-      quantity: 30,
-      unit: "unit",
-      price: 300.0,
-      amount: 1500.0,
-      deliveryDate: "2024-08-07",
-      image: avatar,
-    },
-    {
-      name: "Mechanical ventilation",
-      id: "28373",
-      variant: "blue",
-      quantity: 35,
-      unit: "unit",
-      price: 200.0,
-      amount: 1500.0,
-      deliveryDate: "2024-08-07",
-      image: avatar,
-    },
-  ];
+type Props = {
+  items: {
+    name: string;
+    id: string;
+    variant: string;
+    quantity: number;
+    unit: string;
+    price: number;
+    amount: number;
+    deliveryDate: string;
+  }[];
+};
+
+const ItemsTable = ({ items }: Props) => {
+  // const items = [
+  //   {
+  //     name: "Oxygen concentration",
+  //     id: "28373",
+  //     variant: "blue",
+  //     quantity: 100,
+  //     unit: "pieces",
+  //     price: 200.0,
+  //     amount: 2000.0,
+  //     deliveryDate: "2024-08-07",
+  //     image: avatar,
+  //   },
+  //   {
+  //     name: "Mechanical ventilation",
+  //     id: "28373",
+  //     variant: null,
+  //     quantity: 45,
+  //     unit: "kg",
+  //     price: 350.0,
+  //     amount: 2500.0,
+  //     deliveryDate: "2024-08-07",
+  //     image: avatar,
+  //   },
+  //   {
+  //     name: "Patient monitor",
+  //     id: "28373",
+  //     variant: "blue",
+  //     quantity: 30,
+  //     unit: "unit",
+  //     price: 300.0,
+  //     amount: 1500.0,
+  //     deliveryDate: "2024-08-07",
+  //     image: avatar,
+  //   },
+  //   {
+  //     name: "Mechanical ventilation",
+  //     id: "28373",
+  //     variant: "blue",
+  //     quantity: 35,
+  //     unit: "unit",
+  //     price: 200.0,
+  //     amount: 1500.0,
+  //     deliveryDate: "2024-08-07",
+  //     image: avatar,
+  //   },
+  // ];
 
   return (
     <div className="border space-y-4 rounded-md p-5 px-4">
@@ -76,7 +89,7 @@ const ItemsTable = () => {
                 </td>
                 <td className="py-1 pr-10 pl-10">
                   <div className="flex">
-                    <img src={item.image} alt="" />
+                    {/* <img src={item.image} alt="" /> */}
                     <div className="ml-2 flex flex-col">
                       <span>{item.name}</span>
                       <span>{item.id}</span>
