@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAppContext } from "../context/AppContext";
 import Modal from "./ui/Modal";
-import Spinner from "./ui/spinner";
+import Spinner from "./ui/Spinner";
 
 const SpinnerModal = () => {
   const { handleCloseModal, modal, setMessage } = useAppContext();
