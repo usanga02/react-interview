@@ -5,7 +5,7 @@ import PageHeader from "../ui/PageHeader";
 import Select from "../ui/Select";
 import { ChangeEvent, useCallback } from "react";
 import { formatMoney } from "../../helpers/format";
-import { items } from "../../constants/itemsData";
+import { quote } from "../../constants/itemsData";
 
 type Props = {};
 
@@ -42,7 +42,7 @@ const StepOneForm = (props: Props) => {
     index: number
   ) => {
     const value = e.target.value;
-    const selectedValue = items.find((item) => item.name == value)!;
+    const selectedValue = quote.items.find((item) => item.name == value)!;
     console.log(selectedValue);
 
     setFieldValue(`items.${index}.name`, selectedValue.name);
@@ -147,7 +147,7 @@ const StepOneForm = (props: Props) => {
                           // @ts-ignore
                           value={values.items[index].name}
                           onChange={(e) => handleItemChange(e, index)}
-                          options={[...items.map((item) => item.name)]}
+                          options={[...quote.items.map((item) => item.name)]}
                         />
                       </td>
                       <td className="pr-3">
