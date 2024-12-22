@@ -4,12 +4,16 @@ import Input from "../ui/Input";
 import PageHeader from "../ui/PageHeader";
 import Select from "../ui/Select";
 import { ChangeEvent, useCallback } from "react";
-import { formatMoney } from "../../helpers/format";
+import { calculateTotal, formatMoney } from "../../helpers/format";
 import { quote } from "../../constants/itemsData";
+import { FormStep } from "./FormStepper";
+// import * as yup from "yup";
 
 const StepOneForm = () => {
   const {
     values,
+    errors,
+    touched,
     setFieldValue,
     handleChange,
   }: FormikContextType<{
@@ -28,12 +32,6 @@ const StepOneForm = () => {
       deliveryDate: string;
     }[];
   }> = useFormikContext();
-
-  const calculateTotal = useCallback(
-    () =>
-      values.items.reduce((prev, curr) => prev + curr.price * curr.quantity, 0),
-    [values]
-  );
 
   const handleItemChange = (
     e: ChangeEvent<HTMLSelectElement>,
@@ -72,44 +70,52 @@ const StepOneForm = () => {
   };
 
   return (
-    <>
+    <FormStep>
       <PageHeader
         title="Request for Quote"
         subtitle="Fill out these details to send the RFG"
       />
       <div className="grid grid-cols-2 gap-4 py-8 border-b">
         <Input
-          label="RFG No."
+          label="RFG No.*"
           name="rfgNo"
           value={values?.rfgNo}
           onChange={handleChange}
           type="text"
           placeholder="RFG-10234"
+          error={!!touched.rfgNo && !!errors.rfgNo}
+          helperText={touched.rfgNo && errors.rfgNo}
         />
         <Input
-          label="Title"
+          label="Title*"
           name="title"
           value={values?.title}
           onChange={handleChange}
           type="text"
           placeholder="Request for Equipments"
+          error={!!touched.title && !!errors.title}
+          helperText={touched.title && errors.title}
         />
         <Input
-          label="Department"
+          label="Department*"
           name="department"
           value={values?.department}
           onChange={handleChange}
           type="text"
           placeholder="Maternity"
+          error={!!touched.department && !!errors.department}
+          helperText={touched.department && errors.department}
         />
         <Input
-          label="Expected Delivery Date"
+          label="Expected Delivery Date*"
           onClick={(e) => e.currentTarget.showPicker()}
           name="deliveryDate"
           value={values?.deliveryDate}
           onChange={handleChange}
           type="date"
           placeholder="2024-12-02"
+          error={!!touched.deliveryDate && !!errors.deliveryDate}
+          helperText={touched.deliveryDate && errors.deliveryDate}
         />
       </div>
 
@@ -213,11 +219,9 @@ const StepOneForm = () => {
       <div className="flex justify-end font-semibold mt-3   gap-16 pr-24">
         <div className="space-y-3">
           <p>Sub Total</p>
-          {/* <p>Total</p> */}
         </div>
         <div className="space-y-3">
-          <p>$ {formatMoney(calculateTotal().toString())}</p>
-          {/* <p className="font-bold">$8,750.00</p> */}
+          <p>$ {formatMoney(calculateTotal(values.items).toString())}</p>
         </div>
       </div>
       <div className="flex flex-col w-fit">
@@ -229,7 +233,7 @@ const StepOneForm = () => {
         />
         <p className="text-right font-semibold text-xs">0/200</p>
       </div>
-    </>
+    </FormStep>
   );
 };
 

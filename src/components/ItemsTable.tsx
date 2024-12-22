@@ -1,3 +1,4 @@
+import { calculateTotal, formatMoney } from "../helpers/format";
 
 type Props = {
   items: {
@@ -13,53 +14,6 @@ type Props = {
 };
 
 const ItemsTable = ({ items }: Props) => {
-  // const items = [
-  //   {
-  //     name: "Oxygen concentration",
-  //     id: "28373",
-  //     variant: "blue",
-  //     quantity: 100,
-  //     unit: "pieces",
-  //     price: 200.0,
-  //     amount: 2000.0,
-  //     deliveryDate: "2024-08-07",
-  //     image: avatar,
-  //   },
-  //   {
-  //     name: "Mechanical ventilation",
-  //     id: "28373",
-  //     variant: null,
-  //     quantity: 45,
-  //     unit: "kg",
-  //     price: 350.0,
-  //     amount: 2500.0,
-  //     deliveryDate: "2024-08-07",
-  //     image: avatar,
-  //   },
-  //   {
-  //     name: "Patient monitor",
-  //     id: "28373",
-  //     variant: "blue",
-  //     quantity: 30,
-  //     unit: "unit",
-  //     price: 300.0,
-  //     amount: 1500.0,
-  //     deliveryDate: "2024-08-07",
-  //     image: avatar,
-  //   },
-  //   {
-  //     name: "Mechanical ventilation",
-  //     id: "28373",
-  //     variant: "blue",
-  //     quantity: 35,
-  //     unit: "unit",
-  //     price: 200.0,
-  //     amount: 1500.0,
-  //     deliveryDate: "2024-08-07",
-  //     image: avatar,
-  //   },
-  // ];
-
   return (
     <div className="border space-y-4 rounded-md p-5 px-4">
       <h2 className="font-bold text-brand-dark text-xl">Item(s)</h2>
@@ -117,7 +71,9 @@ const ItemsTable = ({ items }: Props) => {
         </div>
         <div className="space-y-3">
           <p>$8,000.00</p>
-          <p className="font-bold">$8,750.00</p>
+          <p className="font-bold">
+            ${formatMoney(calculateTotal(items).toString())}
+          </p>
         </div>
       </div>
     </div>

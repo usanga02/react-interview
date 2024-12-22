@@ -10,10 +10,11 @@ interface Props extends FormikConfig<FormikValues> {
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
+export const FormStep = ({ children }: FormikStepProps) => {
+  return <>{children as ReactNode}</>;
+};
+
 export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
-  const [buttonType, setButtonType] = useState<
-    "button" | "submit" | "reset" | undefined
-  >("button");
   const stepsArray = React.Children.toArray(
     children as ReactNode[]
   ) as React.ReactElement<FormikStepProps>[];
@@ -22,8 +23,19 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
   const noOfSteps = stepsArray.length - 1;
 
   return (
-    <Formik {...props}>
-      {({ validateForm }) => (
+    <Formik
+      validationSchema={currentStep.props.validationSchema}
+      {...props}
+      onSubmit={async (values, helpers) => {
+        if (step == noOfSteps) {
+          await props.onSubmit(values, helpers);
+        } else {
+          setStep((s) => s + 1);
+          helpers.setTouched({});
+        }
+      }}
+    >
+      {({}) => (
         <Form>
           {currentStep}
 
@@ -31,7 +43,6 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
           <div className="flex justify-end mt-5 gap-3">
             <Button
               onClick={() => {
-                setButtonType("button");
                 setStep(0);
               }}
               type="button"
@@ -42,15 +53,7 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
             <Button type="button" className="px-5" variant="inverted">
               Save as draft
             </Button>
-            <Button
-              onClick={() => {
-                validateForm();
-              
-                step < noOfSteps ? setStep(step + 1) : setButtonType("submit")
-              }}
-              className="px-5 border border-transparent"
-              type={buttonType}
-            >
+            <Button className="px-5 border border-transparent" type="submit">
               {step < noOfSteps ? "Continue" : "Submit"}
             </Button>
           </div>

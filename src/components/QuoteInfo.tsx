@@ -22,7 +22,7 @@ const QuoteInfo = ({ title, rfgNo, deliveryDate, department }: Props) => {
     <div className="border space-y-8 rounded-md p-5 px-7">
       <div className="flex justify-between">
         <h2 className="font-bold text-brand-dark text-xl">Quote Information</h2>
-        <p>{deliveryDate}</p>
+        <p>{new Date(deliveryDate).toDateString()}</p>
       </div>
       <div className="flex justify-between">
         <div className="font-[500] text-brand-text/65 space-y-3">
@@ -40,6 +40,7 @@ const QuoteInfo = ({ title, rfgNo, deliveryDate, department }: Props) => {
               JD
             </span>
             <span>Jane Doe</span>
+            <span className="text-xl items-center">&bull;</span>
             <span className="font-[500] text-brand-text/65">
               Head Nurse, Paediatrics
             </span>

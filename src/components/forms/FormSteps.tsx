@@ -4,7 +4,7 @@ type Props = {
   activeStep: number;
 };
 
-const FormStep = ({ activeStep }: Props) => {
+const FormSteps = ({ activeStep }: Props) => {
   const steps = [
     {
       id: 0,
@@ -28,4 +28,4 @@ const FormStep = ({ activeStep }: Props) => {
   );
 };
 
-export default FormStep;
+export default FormSteps;

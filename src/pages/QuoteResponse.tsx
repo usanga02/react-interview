@@ -1,5 +1,5 @@
 import Breadcrumbs from "../components/ui/BreadCrumbs";
-import FormStep from "../components/forms/FormStep";
+import FormSteps from "../components/forms/FormSteps";
 import QuoteForm from "../components/QuoteForm";
 import ResponseConfirmModal from "../components/ResponseConfirmModal";
 import { useState } from "react";
@@ -13,7 +13,7 @@ const QuoteResponse = () => {
       <ResponseConfirmModal />
       <SpinnerModal />
       <Breadcrumbs />
-      <FormStep activeStep={step} />
+      <FormSteps activeStep={step} />
       <QuoteForm step={step} setStep={setStep} />
     </div>
   );
