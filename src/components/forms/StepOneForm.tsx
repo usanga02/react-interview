@@ -3,7 +3,7 @@ import deleteIcon from "../../assets/icons/bin.svg";
 import Input from "../ui/Input";
 import PageHeader from "../ui/PageHeader";
 import Select from "../ui/Select";
-import { ChangeEvent, useCallback } from "react";
+import { ChangeEvent } from "react";
 import { calculateTotal, formatMoney } from "../../helpers/format";
 import { quote } from "../../constants/itemsData";
 import { FormStep } from "./FormStepper";
