@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="flex bg-white z-50 fixed w-[calc(100%-288px)] items-center justify-between border-b border-[#F0F2F5] px-5 py-2">
       <Button
-        className="text-brand-gray font-[500] pl-1"
+        className="text-brand-gray font-[500] text-sm pl-1"
         variant="ghost"
         onClick={() => navigate(-1)}
       >

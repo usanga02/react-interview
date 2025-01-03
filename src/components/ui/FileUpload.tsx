@@ -26,14 +26,14 @@ const FileUpload = () => {
         <img src={upload} alt="" />
         <div className="text-center">
           <p className="font-bold">
-            <span className="text-brand-blue">Click to upload</span> or drag and
-            drop
+            <span className="text-brand-blue text-sm">Click to upload</span> or
+            drag and drop
           </p>
-          <p>SVG, PNG, JPG or GIF (max. 800x400px)</p>
+          <p className="text-xs">SVG, PNG, JPG or GIF (max. 800x400px)</p>
         </div>
         <div className="relative w-3/5 pt-5">
           <hr className="my-auto" />
-          <span className="absolute right-[45%] -top-1 font-bold bg-white p-3 px-3 rounded-full">
+          <span className="absolute text-xs right-[45%] top-0 font-bold bg-white p-3 px-3 rounded-full">
             OR
           </span>
         </div>
@@ -47,6 +47,7 @@ const FileUpload = () => {
         />
         <Button
           variant="inverted"
+          className="font-bold"
           onClick={(e) => {
             e.preventDefault();
             inputRef.current?.click();

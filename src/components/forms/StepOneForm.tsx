@@ -1,12 +1,12 @@
 import { FieldArray, FormikContextType, useFormikContext } from "formik";
 import deleteIcon from "../../assets/icons/bin.svg";
 import Input from "../ui/Input";
-import PageHeader from "../ui/PageHeader";
 import Select from "../ui/Select";
 import { ChangeEvent } from "react";
 import { calculateTotal, formatMoney } from "../../helpers/format";
 import { quote } from "../../constants/itemsData";
 import { FormStep } from "./FormStepper";
+import FormHeader from "../ui/FormHeader";
 // import * as yup from "yup";
 
 const StepOneForm = () => {
@@ -71,7 +71,7 @@ const StepOneForm = () => {
 
   return (
     <FormStep>
-      <PageHeader
+      <FormHeader
         title="Request for Quote"
         subtitle="Fill out these details to send the RFG"
       />
@@ -106,17 +106,22 @@ const StepOneForm = () => {
           error={!!touched.department && !!errors.department}
           helperText={touched.department && errors.department}
         />
-        <Input
-          label="Expected Delivery Date*"
-          onClick={(e) => e.currentTarget.showPicker()}
-          name="deliveryDate"
-          value={values?.deliveryDate}
-          onChange={handleChange}
-          type="date"
-          placeholder="2024-12-02"
-          error={!!touched.deliveryDate && !!errors.deliveryDate}
-          helperText={touched.deliveryDate && errors.deliveryDate}
-        />
+        <div>
+          <Input
+            label="Expected Delivery Date*"
+            onClick={(e) => e.currentTarget.showPicker()}
+            name="deliveryDate"
+            value={values?.deliveryDate}
+            onChange={handleChange}
+            type="date"
+            placeholder="2024-12-02"
+            error={!!touched.deliveryDate && !!errors.deliveryDate}
+            // helperText={touched.deliveryDate && errors.deliveryDate}
+          />
+          <span className="font-[500] text-xs text-[#667185]">
+            Calculated based on lead time and issue date
+          </span>
+        </div>
       </div>
 
       <FieldArray name="items">
@@ -124,13 +129,13 @@ const StepOneForm = () => {
           <div className="space-y-2 py-8 border-b">
             <h5
               onClick={() => push(quote.items[0])}
-              className="font-bold cursor-pointer w-fit rounded-sm border px-3 pb-1 text-brand-dark"
+              className="font-bold cursor-pointer w-fit rounded-sm pr-3 pb-1 text-brand-dark"
             >
               Add Items
             </h5>
             <table className="w-full">
               <thead className="border bg-sidebar- text-left">
-                <tr className="font-[500] text-sm">
+                <tr className="font-[500] text-sm text-brand-gray">
                   <th className="py-1 pl-2">Items</th>
                   <th className="py-1">Variants</th>
                   <th className="py-1">Quantity</th>
@@ -139,13 +144,14 @@ const StepOneForm = () => {
                   <th className="py-1">Amount</th>
                 </tr>
               </thead>
-              <tbody className="font-semibold">
+              <tbody className="text-brand-bold">
                 {/* @ts-ignore */}
                 {values.items.map((_, index) => {
                   return (
                     <tr key={index}>
                       <td className="py-3 pr-3">
                         <Select
+                          className="text-brand-text2"
                           name={`items.${index}.name`}
                           // @ts-ignore
                           value={values.items[index].name}
@@ -176,7 +182,7 @@ const StepOneForm = () => {
                           name={`items.${index}.price`}
                           readOnly
                           // @ts-ignore
-                          value={formatMoney(values.items[index].price)}
+                          value={`$ ${formatMoney(values.items[index].price)}`}
                           onChange={handleChange}
                         />
                       </td>
@@ -195,9 +201,12 @@ const StepOneForm = () => {
                           <Input
                             type="text"
                             name={`items.${index}.amount`}
+                            className="border-0 font-bold text-sidebar-text"
                             readOnly
                             // @ts-ignore
-                            value={formatMoney(values.items[index].amount)}
+                            value={`$${formatMoney(
+                              values.items[index].amount.toString()
+                            )}`}
                             onChange={handleChange}
                           />
                           <img
@@ -216,7 +225,7 @@ const StepOneForm = () => {
           </div>
         )}
       </FieldArray>
-      <div className="flex justify-end font-semibold mt-3   gap-16 pr-24">
+      <div className="flex justify-end font-semibold mt-5 gap-16 lg:pr-[70px] 2xl:pr-28">
         <div className="space-y-3">
           <p>Sub Total</p>
         </div>
@@ -231,7 +240,7 @@ const StepOneForm = () => {
           rows={3}
           placeholder="Enter note here"
         />
-        <p className="text-right font-semibold text-xs">0/200</p>
+        <p className="text-right font-semibold mt-2 text-xs">0/200</p>
       </div>
     </FormStep>
   );

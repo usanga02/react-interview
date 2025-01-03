@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { cn } from "../../lib/utils";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: string[];
@@ -6,14 +7,17 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ options, label, ...props }, ref) => {
+  ({ options, label, className, ...props }, ref) => {
     return (
       <div className="w-full space-y-1">
         {label && (
-          <label className="text-[#00113D] text-sm font-[600]">{label}</label>
+          <label className="text-sidebar-gray text-sm font-bold">{label}</label>
         )}
         <select
-          className="border px-2 py-1.5 rounded-md w-full min-w-44 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 "
+          className={cn(
+            "border px-2 py-1.5 rounded-md w-full min-w-44 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 text-sm text-brand-bold",
+            className
+          )}
           ref={ref}
           {...props}
         >

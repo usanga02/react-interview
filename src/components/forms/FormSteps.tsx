@@ -20,7 +20,7 @@ const FormSteps = ({ activeStep }: Props) => {
     { id: 2, title: "Review", subtitle: "Confirm all information provided" },
   ];
   return (
-    <div className="border flex justify-between rounded-md items-center p-5 px-10">
+    <div className="border flex justify-between rounded-md items-center p-5 px-5">
       {steps.map((step, index) => (
         <Step key={index} {...step} activeStep={activeStep} />
       ))}

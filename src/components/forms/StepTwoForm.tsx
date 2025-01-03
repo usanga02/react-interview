@@ -1,12 +1,12 @@
 import FileUpload from "../ui/FileUpload";
+import FormHeader from "../ui/FormHeader";
 import Input from "../ui/Input";
-import PageHeader from "../ui/PageHeader";
 import Select from "../ui/Select";
 
 const StepTwoForm = () => {
   return (
     <>
-      <PageHeader
+      <FormHeader
         title="Terms and Attachments"
         subtitle="Provide detailed information on payment and delivery terms"
       />
@@ -36,7 +36,9 @@ const StepTwoForm = () => {
       <div className="space-y-5">
         <div>
           <h5 className="font-bold mt-5 text-brand-dark">Attachments</h5>
-          <p>Attach all necessary files or documents</p>
+          <p className="text-sm text-brand-text2">
+            Attach all necessary files or documents
+          </p>
         </div>
         <FileUpload />
       </div>

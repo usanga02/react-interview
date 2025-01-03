@@ -15,7 +15,7 @@ const Breadcrumbs = ({ separator = "/" }) => {
 
   return (
     <>
-      <ul className="flex font-semibold items-center gap-1.5 text-sm pb-4">
+      <ul className="flex font-[500] items-center gap-1.5 text-sm pb-4">
         <li>
           <Link to="/" className="text-brand-blue">
             Quote

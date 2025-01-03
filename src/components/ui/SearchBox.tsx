@@ -14,7 +14,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
         <input
           className={cn(
-            "flex w-full rounded-md border shadow-sm px-3 font-semibold pl-12 text-brand-gray py-2 text-sm placeholder:text-brand-gray focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50",
+            "flex w-full rounded-md border shadow-sm px-3 pl-12 text-brand-gray py-2 text-sm placeholder:text-brand-gray focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50",
             className
           )}
           placeholder="Search here..."

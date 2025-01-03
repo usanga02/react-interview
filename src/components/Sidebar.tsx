@@ -92,7 +92,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const handleNavClick = (nav: string) => {
-    if (nav !== "#") {
+    if (nav !== "") {
       setActiveNav(nav);
       navigate(nav);
     }
@@ -126,7 +126,13 @@ const Sidebar = () => {
                 >
                   <img src={item.icon} alt="" />
                   <div className="flex justify-between items-center w-full">
-                    <span>{item.name}</span>
+                    <span
+                      className={`text-sm ${
+                        openSubNav === item.name && `font-[500]`
+                      }`}
+                    >
+                      {item.name}
+                    </span>
                     {item.subNav && (
                       <span
                         className={`transition-transform justify-self-end ${
@@ -155,10 +161,10 @@ const Sidebar = () => {
                       <li key={subItem.name}>
                         <div
                           onClick={() => handleNavClick(subItem.nav || "#")}
-                          className={`pl-12 block px-4 py-2 cursor-pointer rounded ${
+                          className={`pl-12 block px-4 py-2 cursor-pointer text-sm rounded ${
                             activeNav === subItem.nav
-                              ? "bg-sidebar-active"
-                              : "hover:bg-sidebar-active"
+                              ? "bg-sidebar-active font-[500]"
+                              : "hover:bg-sidebar-active font-normal"
                           }`}
                         >
                           {subItem.name}

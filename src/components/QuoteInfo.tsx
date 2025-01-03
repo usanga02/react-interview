@@ -1,4 +1,5 @@
 import building from "../assets/icons/building.svg";
+import { formatDate } from "../helpers/format";
 
 type Props = {
   rfgNo: string;
@@ -22,7 +23,10 @@ const QuoteInfo = ({ title, rfgNo, deliveryDate, department }: Props) => {
     <div className="border space-y-8 rounded-md p-5 px-7">
       <div className="flex justify-between">
         <h2 className="font-bold text-brand-dark text-xl">Quote Information</h2>
-        <p>{new Date(deliveryDate).toDateString()}</p>
+        <p className="text-sm">
+          Expected delivery date:{" "}
+          {formatDate(new Date(deliveryDate).toLocaleDateString())}
+        </p>
       </div>
       <div className="flex justify-between">
         <div className="font-[500] text-brand-text/65 space-y-3">
@@ -36,12 +40,12 @@ const QuoteInfo = ({ title, rfgNo, deliveryDate, department }: Props) => {
           <p>{title}</p>
           <p>{rfgNo}</p>
           <p className="space-x-2">
-            <span className="text-brand-bold font-bold bg-brand-pink px-2 pt-1 pb-1.5 rounded-full w-8 h-8">
+            <span className="text-brand-bold font-bold text-sm bg-brand-pink px-2 pt-1 pb-1.5 rounded-full w-8 h-8">
               JD
             </span>
-            <span>Jane Doe</span>
+            <span className="font-[500]">Jane Doe</span>
             <span className="text-xl items-center">&bull;</span>
-            <span className="font-[500] text-brand-text/65">
+            <span className="font-[500] text-brand-text2">
               Head Nurse, Paediatrics
             </span>
           </p>

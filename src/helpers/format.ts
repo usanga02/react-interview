@@ -16,3 +16,11 @@ export const calculateTotal = (
     deliveryDate: string;
   }[]
 ) => items.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
+
+export function formatDate(inputDate: string) {
+  // Split the input date (MM/DD/YYYY)
+  const [month, day, year] = inputDate.split("/");
+
+  // Return the formatted date in YYYY-MM-DD format
+  return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+}

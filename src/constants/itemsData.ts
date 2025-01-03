@@ -1,3 +1,5 @@
+import image from "../assets/icons/Misc icon.svg";
+
 export const quote = {
   rfgNo: "RFG-10234",
   title: "Request for Equipment",
@@ -13,6 +15,7 @@ export const quote = {
       price: 200.0,
       amount: 2000.0,
       deliveryDate: "2024-07-02",
+      image: image,
     },
     {
       name: "Mechanical ventilation",
@@ -23,6 +26,7 @@ export const quote = {
       price: 350.0,
       amount: 2500.0,
       deliveryDate: "2024-08-07",
+      image: image,
     },
     {
       name: "Patient monitor",
@@ -33,6 +37,7 @@ export const quote = {
       price: 300.0,
       amount: 1500.0,
       deliveryDate: "2024-08-13",
+      image: image,
     },
     {
       name: "Mechanical ventilation",
@@ -43,6 +48,7 @@ export const quote = {
       price: 200.0,
       amount: 1500.0,
       deliveryDate: "2024-09-08",
+      image: image,
     },
   ],
 };

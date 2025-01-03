@@ -10,6 +10,7 @@ type Props = {
     price: number;
     amount: number;
     deliveryDate: string;
+    image: string;
   }[];
 };
 
@@ -21,10 +22,10 @@ const ItemsTable = ({ items }: Props) => {
         <table className="w-full table-auto text-left">
           <thead className="text-sidebar-text border-b font-normal text-xs">
             <tr className="bg-table-gray">
-              <th className="pt-2 pr-4 pl-10">
+              <th className="pt-2 pl-10">
                 <input type="checkbox" />
               </th>
-              <th className="py-3 pr-10 pl-10">Items</th>
+              <th className="py-3 pr-10">Items</th>
               <th className="py-3 pr-10 pl-10">Variants</th>
               <th className="py-3 pr-10 pl-10">Quantity</th>
               <th className="py-3 pr-10 pl-10">Price</th>
@@ -35,17 +36,19 @@ const ItemsTable = ({ items }: Props) => {
           <tbody className="">
             {items.map((item, index) => (
               <tr key={index} className="divide-y h-fit">
-                <td className="py-1 pr-4 pl-10">
+                <td className="py-1 pl-10">
                   <div className="flex">
                     <input type="checkbox" />
                   </div>
                 </td>
-                <td className="py-1 pr-10 pl-10">
+                <td className="py-1 pr-10">
                   <div className="flex">
-                    {/* <img src={item.image} alt="" /> */}
-                    <div className="ml-2 flex flex-col">
-                      <span>{item.name}</span>
-                      <span>{item.id}</span>
+                    <img src={item.image} alt="" />
+                    <div className="ml-2 text-sm flex flex-col">
+                      <span className="font-[500] text-brand-bold">
+                        {item.name}
+                      </span>
+                      <span className="text-sidebar-gray">#{item.id}</span>
                     </div>
                   </div>
                 </td>

@@ -18,8 +18,13 @@ const Quotes = () => {
           subtitle="Created on Wed, 12th June 2022, 08:00am"
         />
         <div className="flex gap-3">
-          <Button onClick={() => navigate("/quote-response")}>Respond</Button>
-          <Button variant="destructive">
+          <Button
+            className="font-bold"
+            onClick={() => navigate("/quote-response")}
+          >
+            Respond
+          </Button>
+          <Button className="font-bold" variant="destructive">
             <img src={multiply} className="mr-2" alt="" />
             Reject
           </Button>
