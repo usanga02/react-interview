@@ -25,9 +25,11 @@ const FileUpload = () => {
       <div className="border-2 border-dashed space-y-4 p-5 rounded-2xl flex flex-col justify-between items-center ">
         <img src={upload} alt="" />
         <div className="text-center">
-          <p className="font-bold">
-            <span className="text-brand-blue text-sm">Click to upload</span> or
-            drag and drop
+          <p>
+            <span className="text-brand-blue font-[500] text-sm">
+              Click to upload
+            </span>{" "}
+            or drag and drop
           </p>
           <p className="text-xs">SVG, PNG, JPG or GIF (max. 800x400px)</p>
         </div>

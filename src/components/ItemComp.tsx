@@ -9,8 +9,12 @@ const ItemComp = () => {
       <div className="flex items-start gap-1">
         <img src={signDoc} alt="" className="mt-1" />
         <div>
-          <h2 className="font-bold text-brand-dark text-xl">Item(s)</h2>
-          <p>Expected delivery date : 2024-12-02</p>
+          <h2 className="font-bold text-brand-dark text-xl">
+            Terms and Attachments
+          </h2>
+          <p className="text-sm text-sidebar-gray">
+            Review payment and delivery terms
+          </p>
         </div>
       </div>
       <div className="cursor-pointer px-3.5 pt-3 pb-2 rounded-full">

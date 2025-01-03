@@ -7,6 +7,7 @@ import { calculateTotal, formatMoney } from "../../helpers/format";
 import { quote } from "../../constants/itemsData";
 import { FormStep } from "./FormStepper";
 import FormHeader from "../ui/FormHeader";
+import packs from "../../assets/icons/packs.svg";
 // import * as yup from "yup";
 
 const StepOneForm = () => {
@@ -60,7 +61,7 @@ const StepOneForm = () => {
     e: ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
-    const quantity = e.target.value;
+    const quantity = e.target.value.replace(/[^0-9]/g, "");
 
     setFieldValue(`items.${index}.quantity`, quantity);
     setFieldValue(
@@ -173,7 +174,8 @@ const StepOneForm = () => {
                           name={`items.${index}.quantity`}
                           // @ts-ignore
                           value={values.items[index].quantity}
-                          type="number"
+                          type="text"
+                          rightIcon={<img src={packs} alt="" />}
                           onChange={(e) => handleQuantityChange(e, index)}
                         />
                       </td>
@@ -225,7 +227,7 @@ const StepOneForm = () => {
           </div>
         )}
       </FieldArray>
-      <div className="flex justify-end font-semibold mt-5 gap-16 lg:pr-[70px] 2xl:pr-28">
+      <div className="flex justify-end mt-5 gap-16 lg:pr-[70px] 2xl:pr-28">
         <div className="space-y-3">
           <p>Sub Total</p>
         </div>

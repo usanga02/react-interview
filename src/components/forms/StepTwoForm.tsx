@@ -2,6 +2,7 @@ import FileUpload from "../ui/FileUpload";
 import FormHeader from "../ui/FormHeader";
 import Input from "../ui/Input";
 import Select from "../ui/Select";
+import days from "../../assets/icons/days.svg";
 
 const StepTwoForm = () => {
   return (
@@ -30,6 +31,7 @@ const StepTwoForm = () => {
           className="font-semibold"
           name="leadTime"
           label="Lead Time"
+          rightIcon={<img src={days} alt="" />}
           defaultValue={10}
         />
       </div>
