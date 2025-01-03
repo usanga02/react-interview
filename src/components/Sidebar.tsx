@@ -201,7 +201,9 @@ const Sidebar = () => {
           <div className="flex ml-3 justify-between">
             <img src={avatar} alt="" />
             <div className="flex flex-col leading-tight">
-              <span className="text-sidebar-brand font-bold">Mark Benson</span>
+              <span className="text-sidebar-brand text-sm font-bold">
+                Mark Benson
+              </span>
               <span className="text-sidebar-gray">markbenson@core...</span>
             </div>
             <img className="cursor-pointer" src={signOut} alt="" />

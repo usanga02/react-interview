@@ -20,8 +20,8 @@ const Navbar = () => {
       </Button>
       <div className="flex gap-4">
         <SearchBox />
-        <img src={bell} alt="" />
-        <img src={chat} alt="" />
+        <img src={bell} className="cursor-pointer" alt="" />
+        <img src={chat} className="cursor-pointer" alt="" />
         <div className="flex w-fit items-center cursor-pointer">
           <img src={avatar} alt="" className="h-8 w-8" />
           <img src={arrowDown} alt="" className="w-6 h-6" />
