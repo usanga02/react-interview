@@ -22,7 +22,7 @@ const ItemsTable = ({ items }: Props) => {
         <table className="w-full table-auto text-left">
           <thead className="text-sidebar-text border-b font-normal text-xs">
             <tr className="bg-table-gray">
-              <th className="pt-2 pl-10">
+              <th className="pt-2 pl-10 pr-3">
                 <input type="checkbox" />
               </th>
               <th className="py-3 pr-10">Items</th>
@@ -36,7 +36,7 @@ const ItemsTable = ({ items }: Props) => {
           <tbody className="">
             {items.map((item, index) => (
               <tr key={index} className="divide-y h-fit">
-                <td className="py-1 pl-10">
+                <td className="py-1 pl-10 pr-3">
                   <div className="flex">
                     <input type="checkbox" />
                   </div>
