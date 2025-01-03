@@ -48,7 +48,9 @@ const ItemsTable = ({ items }: Props) => {
                       <span className="font-[500] text-brand-bold">
                         {item.name}
                       </span>
-                      <span className="text-sidebar-gray">#{item.id}</span>
+                      <span className="text-sidebar-gray font-normal">
+                        #{item.id}
+                      </span>
                     </div>
                   </div>
                 </td>

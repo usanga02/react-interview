@@ -25,7 +25,7 @@ const QuoteInfo = ({ title, rfgNo, deliveryDate, department }: Props) => {
   const inQR = pathname === "/quote-response";
 
   return (
-    <div className="border space-y-8 rounded-md p-5 px-7">
+    <div className="border space-y-5 rounded-md p-5 px-7">
       <div className="flex justify-between">
         <h2 className="font-bold text-brand-dark text-xl">Quote Information</h2>
         {!inQR ? (
