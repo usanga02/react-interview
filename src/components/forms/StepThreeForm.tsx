@@ -16,6 +16,7 @@ const StepThreeForm = () => {
       id: string;
       variant: string;
       quantity: number;
+      image: string;
       unit: string;
       price: number;
       amount: number;
