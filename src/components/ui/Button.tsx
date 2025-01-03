@@ -13,7 +13,7 @@ const buttonStyles = cva({
   base: [
     "whitespace-nowrap rounded-md",
     "inline-flex items-center justify-center",
-    "text-sm font-medium transition-colors",
+    "text-sm font-bold transition-colors",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
     "disabled:pointer-events-none disabled:opacity-50",
   ],
