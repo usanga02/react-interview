@@ -51,7 +51,11 @@ const QuoteForm = ({ setStep, step }: Props) => {
   });
 
   return (
-    <div className="border justify-between rounded-md items-center p-5 px-5">
+    <div
+      className={`${
+        step < 2 && `border px-5`
+      } justify-between rounded-md items-center py-5`}
+    >
       <FormStepper
         step={step}
         setStep={setStep}

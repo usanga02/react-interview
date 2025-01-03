@@ -39,8 +39,8 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
         <Form>
           {currentStep}
 
-          <hr className="mt-8" />
-          <div className="flex justify-end mt-5 gap-3">
+          {step < 2 && <hr className="mt-6" />}
+          <div className="flex justify-end mt-8 gap-5">
             <Button
               onClick={() => {
                 setStep(0);
@@ -50,10 +50,10 @@ export const FormStepper = ({ children, step, setStep, ...props }: Props) => {
             >
               Cancel
             </Button>
-            <Button type="button" className="px-5" variant="inverted">
+            <Button type="button" className="px-10" variant="inverted">
               Save as draft
             </Button>
-            <Button className="px-5 border border-transparent" type="submit">
+            <Button className="px-10 border border-transparent" type="submit">
               {step < noOfSteps ? "Continue" : "Submit"}
             </Button>
           </div>
