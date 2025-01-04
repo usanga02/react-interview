@@ -1,14 +1,14 @@
 import { FieldArray, FormikContextType, useFormikContext } from "formik";
 import deleteIcon from "../../assets/icons/bin.svg";
 import Input from "../ui/Input";
-import Select from "../ui/Select";
 import { ChangeEvent } from "react";
 import { calculateTotal, formatMoney } from "../../helpers/format";
 import { quote } from "../../constants/itemsData";
 import { FormStep } from "./FormStepper";
 import FormHeader from "../ui/FormHeader";
 import packs from "../../assets/icons/packs.svg";
-// import * as yup from "yup";
+import SelectComp from "../ui/SelectComp";
+import { DatePicker } from "../ui/datePicker";
 
 const StepOneForm = () => {
   const {
@@ -70,6 +70,25 @@ const StepOneForm = () => {
     );
   };
 
+  const handleDateChange = (
+    e: any,
+    setSelectedValue: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    const date = new Date(e).toLocaleDateString();
+    setSelectedValue(e);
+    setFieldValue(`deliveryDate`, date);
+  };
+
+  const handleItemDateChange = (
+    e: any,
+    setSelectedValue: React.Dispatch<React.SetStateAction<string>>,
+    index: number
+  ) => {
+    const date = new Date(e).toLocaleDateString();
+    setSelectedValue(e);
+    setFieldValue(`items.${index}.deliveryDate`, date);
+  };
+
   return (
     <FormStep>
       <FormHeader
@@ -108,16 +127,14 @@ const StepOneForm = () => {
           helperText={touched.department && errors.department}
         />
         <div>
-          <Input
+          <DatePicker
             label="Expected Delivery Date*"
-            onClick={(e) => e.currentTarget.showPicker()}
-            name="deliveryDate"
             value={values?.deliveryDate}
-            onChange={handleChange}
-            type="date"
+            onChange={(e, setSelectedValue) =>
+              handleDateChange(e, setSelectedValue)
+            }
             placeholder="2024-12-02"
             error={!!touched.deliveryDate && !!errors.deliveryDate}
-            // helperText={touched.deliveryDate && errors.deliveryDate}
           />
           <span className="font-[500] text-xs text-[#667185]">
             Calculated based on lead time and issue date
@@ -151,7 +168,7 @@ const StepOneForm = () => {
                   return (
                     <tr key={index}>
                       <td className="py-3 pr-3">
-                        <Select
+                        <SelectComp
                           className="text-brand-text2"
                           name={`items.${index}.name`}
                           // @ts-ignore
@@ -161,7 +178,7 @@ const StepOneForm = () => {
                         />
                       </td>
                       <td className="pr-3">
-                        <Select
+                        <SelectComp
                           name={`items.${index}.variant`}
                           // @ts-ignore
                           value={values.items[index].variant}
@@ -189,13 +206,12 @@ const StepOneForm = () => {
                         />
                       </td>
                       <td className="pr-3">
-                        <Input
-                          onClick={(e) => e.currentTarget.showPicker()}
+                        <DatePicker
                           // @ts-ignore
                           value={values.items[index].deliveryDate}
-                          onChange={handleChange}
-                          type="date"
-                          name={`items.${index}.deliveryDate`}
+                          onChange={(e, setSelectedValue) =>
+                            handleItemDateChange(e, setSelectedValue, index)
+                          }
                         />
                       </td>
                       <td className="pl-3">

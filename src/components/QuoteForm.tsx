@@ -23,7 +23,6 @@ const QuoteForm = ({ setStep, step }: Props) => {
   };
 
   const handleSubmit = (values: FormikValues) => {
-    // helpers.validateForm(values)
     console.log(values);
     setModal("confirmResponse");
   };
@@ -61,6 +60,7 @@ const QuoteForm = ({ setStep, step }: Props) => {
         setStep={setStep}
         initialValues={initialValues}
         validationSchema={validationSchema}
+        enableReinitialize
         onSubmit={handleSubmit}
       >
         <StepOneForm />

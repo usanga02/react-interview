@@ -9,7 +9,7 @@ export interface ButtonProps
   asChild?: boolean;
 }
 
-const buttonStyles = cva({
+export const buttonStyles = cva({
   base: [
     "whitespace-nowrap rounded-md",
     "inline-flex items-center justify-center",

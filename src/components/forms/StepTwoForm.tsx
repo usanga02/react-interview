@@ -1,8 +1,9 @@
 import FileUpload from "../ui/FileUpload";
 import FormHeader from "../ui/FormHeader";
 import Input from "../ui/Input";
-import Select from "../ui/Select";
+// import Select from "../ui/Select";
 import days from "../../assets/icons/days.svg";
+import SelectComp from "../ui/SelectComp";
 
 const StepTwoForm = () => {
   return (
@@ -12,19 +13,22 @@ const StepTwoForm = () => {
         subtitle="Provide detailed information on payment and delivery terms"
       />
       <div className="grid grid-cols-2 gap-4 py-8 border-b">
-        <Select
+        <SelectComp
           name="paymentTerms"
           label="Payment Terms"
+          value="Net 30"
           options={["Net 30"]}
         />
-        <Select
+        <SelectComp
           name="deliverySchedule"
           label="Delivery Schedule"
+          value="Immediate delivery"
           options={["Immediate delivery"]}
         />
-        <Select
+        <SelectComp
           name="shippingMethod"
           label="Shipping Method"
+          value="Courier Service"
           options={["Courier Service"]}
         />
         <Input

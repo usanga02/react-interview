@@ -31,7 +31,7 @@ export const quote = {
     {
       name: "Patient monitor",
       id: "28373",
-      variant: "blue",
+      variant: "Blue",
       quantity: 1,
       unit: "unit",
       price: 300.0,
@@ -40,7 +40,7 @@ export const quote = {
       image: image,
     },
     {
-      name: "Mechanical ventilation",
+      name: "Air ventilation",
       id: "28373",
       variant: "Green",
       quantity: 1,

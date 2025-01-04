@@ -18,9 +18,10 @@ export const calculateTotal = (
 ) => items.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
 
 export function formatDate(inputDate: string) {
+  if (!inputDate.includes("/")) return inputDate;
   // Split the input date (MM/DD/YYYY)
-  const [month, day, year] = inputDate.split("/");
+  const [month, day, year] = inputDate?.split("/");
 
   // Return the formatted date in YYYY-MM-DD format
-  return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  return `${year}-${month?.padStart(2, "0")}-${day?.padStart(2, "0")}`;
 }
