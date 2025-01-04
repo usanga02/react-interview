@@ -17,7 +17,7 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 
 const SelectComp = ({ options, label, value }: SelectProps) => {
   return (
-    <div className="w-full space-y-1">
+    <div className="w-full min-w-36 space-y-1">
       {label && <label>{label}</label>}
       <Select value={value}>
         <SelectTrigger className="w-full">
