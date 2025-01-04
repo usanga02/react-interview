@@ -7,6 +7,7 @@ import {
   SelectGroup,
   SelectItem,
 } from "./Select";
+import { cn } from "@/lib/utils";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: string[];
@@ -15,9 +16,9 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   value?: string;
 }
 
-const SelectComp = ({ options, label, value }: SelectProps) => {
+const SelectComp = ({ options, label, value, className }: SelectProps) => {
   return (
-    <div className="w-full min-w-36 space-y-1">
+    <div className={cn("w-full min-w-36 space-y-1", className)}>
       {label && <label>{label}</label>}
       <Select value={value}>
         <SelectTrigger className="w-full">
