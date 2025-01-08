@@ -192,7 +192,7 @@ const Sidebar = () => {
                 >
                   <img src={item.icon} alt="" />
                   <div className="flex justify-between items-center w-full">
-                    <span>{item.name}</span>
+                    <span className="text-sm">{item.name}</span>
                   </div>
                 </div>
               </li>
